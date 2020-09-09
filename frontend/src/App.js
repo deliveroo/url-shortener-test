@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import List from "./components/List";
+import Form from "./components/Form";
 
 function App() {
+  const [urls, setUrls] = useState([]);
+
+  useEffect(() => {
+    async function fetchUrls() {
+      const result = await fetch("http://localhost:3000/urls");
+      const json = await result.json();
+
+      setUrls(Object.entries(json).map(([code, url]) => ({ code, url })));
+    }
+
+    fetchUrls();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>New short URL</h1>
+      <Form />
+
+      <h1>Current short URLs</h1>
+      <List items={urls} />
     </div>
   );
 }

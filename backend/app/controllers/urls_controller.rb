@@ -4,7 +4,6 @@ class UrlsController < ApplicationController
   end
 
   def create
-    binding.pry
     if url.blank?
       render json: { error: :blank_url }, status: 400
       return

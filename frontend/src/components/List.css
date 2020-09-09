@@ -1,14 +1,10 @@
 .url-list {
   background: white;
   color: #555;
-  padding: 0;
+  margin: 5px 0;
+  padding-left: 30px;
 }
 
 .url-list li {
-  padding: 1em 2em;
   width: 100%;
-}
-
-.url-list li:nth-child(odd) {
-  background: #f2f2f2;
 }

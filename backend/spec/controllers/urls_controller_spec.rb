@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UrlsController do
   describe '#index' do
-    subject { get :index }
-
-    before do
-      subject
-    end
+    subject! { get :index }
 
     it 'does something' do
 
@@ -16,11 +12,7 @@ RSpec.describe UrlsController do
   describe '#create' do
     let(:url) { 'https://google.com' }
 
-    subject { post :create, params: { url: url }}
-
-    before do
-      subject
-    end
+    subject! { post :create, params: { url: url }}
 
     it 'does something' do
 

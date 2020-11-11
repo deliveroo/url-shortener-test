@@ -5,12 +5,12 @@ class UrlsController < ApplicationController
 
   def create
     if url.blank?
-      render json: { error: :blank_url }, status: 400
+      render json: { error: :blank_url }, status: :bad_request
       return
     end
 
     unique_id = Url.create(url)
-    render json: unique_id
+    render json: { code: unique_id }, status: :created
   end
 
   def show
@@ -20,7 +20,7 @@ class UrlsController < ApplicationController
     if long_url
       redirect_to long_url, status: 301
     else
-      render json: { error: :invalid_url }, status: 400
+      render json: { error: :invalid_url }, status: :bad_request
     end
   end
 

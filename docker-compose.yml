@@ -9,12 +9,17 @@ services:
     image: redis:latest
     command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
     hostname: redis
+    volumes:
+      - ./backend:/backend
     networks:
       - app-tier
     ports:
       - "6379:6379"
   backend:
     build: backend
+    depends_on:
+      - redis
+      - frontend
     ports:
       - "3000:3000"
     networks:
@@ -26,3 +31,5 @@ services:
     stdin_open: true
     ports:
       - "3001:3001"
+    volumes:
+      - ./frontend:/frontend

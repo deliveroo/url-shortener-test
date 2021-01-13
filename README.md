@@ -51,8 +51,8 @@ bundle exec rails s
 
 ```
 cd frontend
-npm i
-npm run start
+yarn install
+yarn start
 ```
 
 The frontend application should automatically open in the browser.

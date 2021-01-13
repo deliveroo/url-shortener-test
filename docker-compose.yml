@@ -1,9 +1,5 @@
 version: '3'
 
-networks:
-  app-tier:
-    driver: bridge
-
 services:
   redis:
     image: redis:latest
@@ -11,8 +7,6 @@ services:
     hostname: redis
     volumes:
       - ./backend:/backend
-    networks:
-      - app-tier
     ports:
       - "6379:6379"
   backend:
@@ -22,8 +16,6 @@ services:
       - frontend
     ports:
       - "3000:3000"
-    networks:
-      - app-tier
     environment:
       - IS_DOCKER=1
   frontend:
@@ -33,3 +25,4 @@ services:
       - "3001:3001"
     volumes:
       - ./frontend:/frontend
+      - /frontend/node_modules

@@ -1,6 +1,7 @@
 FROM node:14
-COPY . ./frontend/
+
 WORKDIR /frontend
-COPY package.json yarn.lock ./frontend/
+COPY package.json yarn.lock ./
 RUN yarn install
+COPY . .
 CMD ["yarn", "start"]

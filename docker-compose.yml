@@ -5,12 +5,12 @@ services:
     image: redis:latest
     command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
     hostname: redis
-    volumes:
-      - ./backend:/backend
     ports:
       - "6379:6379"
   backend:
     build: backend
+    volumes:
+      - ./backend:/backend
     depends_on:
       - redis
       - frontend

@@ -12,6 +12,21 @@ POST /urls # Create a new short url. Parameters: url:string
 GET /urls/:id # Redirect to the long version of a short url
 ```
 
+# Docker setup
+
+```
+> docker-compose run --rm backend
+```
+
+This will start backend, frontend and redis. The website is available under https://localhost:3001
+and you can update and add files in your local filesystem which will automatically get synced.
+
+## Running rspec tests
+
+```
+> docker-compose run --rm bundle exec rspec spec
+```
+
 
 # Backend setup
 
@@ -36,8 +51,8 @@ bundle exec rails s
 
 ```
 cd frontend
-npm i
-npm run start
+yarn install
+yarn start
 ```
 
 The frontend application should automatically open in the browser.

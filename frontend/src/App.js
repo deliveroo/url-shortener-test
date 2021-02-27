@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import List from "./components/List";
+import Table from "./components/Table";
 import Form from "./components/Form";
 
 function App() {
@@ -19,12 +19,16 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1>New short URL</h1>
-      <Form />
+    <div className="app">
+      <div className="panel table">
+        <h1>Shortened URLs</h1>
+        <Table items={urls} />
+      </div>
 
-      <h1>Current short URLs</h1>
-      <List items={urls} />
+      <div className="panel form">
+        <h1>New shortened URL</h1>
+        <Form />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,20 @@
 import React from "react";
 
+import './Form.css'
+
 const Form = () => {
-  return <div className="form">Ah! This hasn't been built yet</div>;
+  return (
+    <form>
+      <div className="form-row">
+        <label>
+          We should probably build this form sometime soon...
+      </label>
+      </div>
+      <div className="form-row">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  );
 };
 
 export default Form;

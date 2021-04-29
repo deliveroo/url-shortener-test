@@ -15,7 +15,7 @@ GET /urls/:id # Redirect to the long version of a short url
 # Docker setup
 
 ```
-> docker-compose run --rm backend
+> docker-compose run --rm --service-ports backend
 ```
 
 This will start backend, frontend and redis. The website is available under https://localhost:3001
@@ -24,7 +24,7 @@ and you can update and add files in your local filesystem which will automatical
 ## Running rspec tests
 
 ```
-> docker-compose run --rm bundle exec rspec spec
+> docker-compose run --rm backend bundle exec rspec spec
 ```
 
 

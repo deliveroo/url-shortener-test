@@ -27,36 +27,6 @@ and you can update and add files in your local filesystem which will automatical
 > docker-compose run --rm backend bundle exec rspec spec
 ```
 
-
-# Backend setup
-
-There is no database portion to the backend application. The only store we require is Redis. Therefore, you will need to install `redis-server`.
-
-On OS X, you can install this through Homebrew by running:
-
-```
-brew install redis
-brew services start redis
-```
-
-The setup commands are:
-
-```
-cd backend
-bundle install
-bundle exec rails s
-```
-
-# Frontend setup
-
-```
-cd frontend
-yarn install
-yarn start
-```
-
-The frontend application should automatically open in the browser.
-
 # Ports
 
 Backend default port: `3000`
